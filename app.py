@@ -8,7 +8,7 @@ from sentry_sdk import set_tag
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 sentry_sdk.init(
-    dsn="https://7c687b03455340d2beec8925b8acafea@o139230.ingest.sentry.io/1232413",
+    dsn="https://a3bc043ab9b34215b31b7dc3d444f51e@meowlificent.ngrok.io/1",
     integrations=[FlaskIntegration()],
     release="12345",
     environment="production",
@@ -31,7 +31,7 @@ def do_something():
         return 'yoo', 400 
     else: # GET
         set_tag("meow", "cat")
-        release_me()
+        hello_wtf()
         return 'hi', 400
 
 @app.before_request
