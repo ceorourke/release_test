@@ -8,7 +8,7 @@ from sentry_sdk import set_tag
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 sentry_sdk.init(
-    dsn="https://a3bc043ab9b34215b31b7dc3d444f51e@meowlificent.ngrok.io/1",
+    dsn="https://a3bc043ab9b34215b31b7dc3d444f51e@meowlificent.ngrok.io/1", # local
     integrations=[FlaskIntegration()],
     release="12345",
     environment="production",
@@ -25,13 +25,13 @@ def do_nothing():
     return 'hi', 200
 
 @app.route('/inbound', methods=['GET', 'POST'])
-def do_something():
+def do_something_else():
     if request.method == 'POST':
         sentry_sdk.capture_message("why")
         return 'yoo', 400 
     else: # GET
         set_tag("meow", "cat")
-        hello_wtf()
+        notifyy_hellboy()
         return 'hi', 400
 
 @app.before_request
